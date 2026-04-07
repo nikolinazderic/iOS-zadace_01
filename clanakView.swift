@@ -19,8 +19,21 @@ struct ClanakView: View {
             .clipShape(RoundedRectangle(cornerRadius: 10))
 
             VStack(alignment: .leading, spacing: 3) {
-
-                CategoryBadge(category: clanak.category)
+                HStack {
+                        CategoryBadge(category: clanak.category)
+                        
+                        Spacer()
+                        HStack(spacing: 4) {
+                            Image(systemName: "star.fill")
+                                .font(.caption2)
+                                .foregroundStyle(.secondary)
+                            
+                            Text(String(format: "%.1f", clanak.averageRating))
+                                .font(.caption2)
+                                .fontWeight(.bold)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
 
                 Text(clanak.title)
                     .font(.headline)

@@ -28,7 +28,8 @@ struct Clanak: Equatable, Identifiable {
         imageURL: URL,
         publishedAt: Date,
         author: String? = nil,
-        category: Category
+        category: Category,
+        ratings: [Double] = []
     ) {
         self.id = id
         self.title = title
@@ -38,7 +39,7 @@ struct Clanak: Equatable, Identifiable {
         self.publishedAt = publishedAt
         self.author = author
         self.category = category
-        self.ratings = []
+        self.ratings = ratings
     }
 
     mutating func addRating(_ rating: Double) {
@@ -54,7 +55,8 @@ extension Clanak {
         imageURL: URL(string: "https://www.artificialintelligence-news.com/wp-content/uploads/2026/04/five-year-plan-hero_x1440-1024x685.webp")!,
         publishedAt: Date(),
         author: "Ana Kovačić",
-        category: .tech
+        category: .tech,
+        ratings: [4.5, 4.0, 3.5]
     )
 
     static let mock2 = Clanak(
@@ -63,8 +65,9 @@ extension Clanak {
         content: "U trećoj utrci sezone Mercedesov auto nastavlja dominirati, a prate ga McLarren Oscara Piastria i Ferrari Charlesa Leclerca. ",
         imageURL: URL(string: "https://images.ctfassets.net/1fvlg6xqnm65/5ShOrY95wQdCn4MoAYX6NQ/03e479ad87eef7fe972bc1998bcd2be2/01-M591291.jpg?w=1920&q=75&fm=webp")!,
         publishedAt: Calendar.current.date(byAdding: .hour, value: -3, to: Date())!,
-        author: "Tomislav Barić",
-        category: .sport(subcategory: .formula1)
+        author: "Tomislav Berić",
+        category: .sport(subcategory: .formula1),
+        ratings: [4.5, 5.0, 4.5]
     )
 
     static let mock3 = Clanak(
@@ -73,7 +76,8 @@ extension Clanak {
         content: "Svjetski poznata reality TV serija dolazi u Hrvtasku.",
         imageURL: URL(string: "https://i.ytimg.com/vi/tvttimIQLS4/hqdefault.jpg")!,
         publishedAt: Calendar.current.date(byAdding: .day, value: -1, to: Date())!,
-        category: .lifestyle
+        category: .lifestyle,
+        ratings: [3.5, 3.0, 4.5]
     )
 
     static let mock4 = Clanak(
@@ -83,7 +87,8 @@ extension Clanak {
         imageURL: URL(string: "https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/e745/live/d40e9650-2d52-11f1-8287-670af2c7ae92.jpg")!,
         publishedAt: Calendar.current.date(byAdding: .day, value: -2, to: Date())!,
         author: "Maja Horvat",
-        category: .politika
+        category: .politika,
+        ratings: [4.0, 4.0, 3.5]
     )
 
     static let mock5 = Clanak(
@@ -92,8 +97,9 @@ extension Clanak {
         content: "Nakon dugogodišnjeg čekanja astronauti Artemisa II su uspješno stigli na Mjesec",
         imageURL: URL(string: "https://img.24sata.hr/OjaFXj1ccu9LgjD8VYjG_QWNdkA=/776x430/smart/media/images/2026-14/2026-04-03t214148z-255786602-rc2thkapxhys-rtrmadp-3-space-moon-artemis.jpg")!,
         publishedAt: Calendar.current.date(byAdding: .day, value: -3, to: Date())!,
-        author: "Dr. Ivan Perić",
-        category: .znanost
+        author: "Ivan Perić",
+        category: .znanost,
+        ratings: [3.5, 5.0, 3.5]
     )
 
     static let mockClanaci: [Clanak] = [mock1, mock2, mock3, mock4, mock5]
